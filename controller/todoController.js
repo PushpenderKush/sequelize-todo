@@ -85,7 +85,7 @@ const updateTodoCompletion = catchAsync(async (req, res, next) => {
   const { isCompleted } = req.body;
 
   const [updatedRows, [updatedTodo]] = await todo.update(
-    { isCompleted: !isCompleted },
+    { isCompleted: isCompleted },
     { where: { id, createdBy }, returning: true, individualHooks: true }
   );
 
